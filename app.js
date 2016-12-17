@@ -1,6 +1,6 @@
 const electron = require('electron')
 // 控制应用生命周期的模块。
-const {app} = electron
+const {app, shell} = electron
 // 创建原生浏览器窗口的模块。
 const {BrowserWindow} = electron
 
@@ -13,7 +13,7 @@ function createWindow () {
   mainWindow = new BrowserWindow({width: 400, height: 1000})
 
   // 加载应用的 index.html。
-  mainWindow.loadURL(`file://${__dirname}/index.html`) 
+  mainWindow.loadURL(`file://${__dirname}/index.html`)
 
   // 启用开发工具。
   // mainWindow.webContents.openDevTools()

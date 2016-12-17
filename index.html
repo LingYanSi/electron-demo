@@ -5,6 +5,16 @@
         <title></title>
     </head>
     <body>
-        <h1>Electron app Test</h1>
+        <h1>Electron app Test1</h1>
+        <div id="log"></div>
+        <a href="https://lingyansi.space">哈哈哈哈</a>
+
+        <script type="text/javascript">
+            var fs = require('fs')
+            fs.writeFileSync('./a.txt', '我是测试啦')
+
+            let str = fs.readFileSync('./a.txt').toString('utf8')
+            document.querySelector('#log').innerHTML = str
+        </script>
     </body>
 </html>
