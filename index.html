@@ -1,20 +1,131 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8">
-        <title></title>
-    </head>
-    <body>
-        <h1>Electron app Test1</h1>
-        <div id="log"></div>
-        <a href="https://lingyansi.space">哈哈哈哈</a>
 
-        <script type="text/javascript">
-            var fs = require('fs')
-            fs.writeFileSync('./a.txt', '我是测试啦')
+<head>
+    <meta charset="utf-8">
+    <title>swtich host</title>
+    <style media="screen">
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        body {
+            min-height: 100vh;
+            background: rgb(178, 208, 208);
+        }
+        #app {
+            display: flex;
+            height: 100vh;
+        }
 
-            let str = fs.readFileSync('./a.txt').toString('utf8')
-            document.querySelector('#log').innerHTML = str
-        </script>
-    </body>
+        .side {
+            width: 180px;
+        }
+
+        .main {
+            flex: 1;
+        }
+
+        li {
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+        li.current {
+            border-left: 4px solid red;
+        }
+
+        li span {
+            padding: 10px 50px 10px 10px;
+            display: block;
+            flex: 1;
+        }
+        li button {
+            display: block;
+            padding: 0 1em;
+            display: none;
+        }
+        li:hover, .active {
+            background: rgba(255, 255, 255, .3);
+        }
+
+        li:hover button {
+            display: block;
+        }
+
+        .bts {
+            padding: 10px;
+            display: flex;
+        }
+
+        button {
+            height: 2.6em;
+            background: none;
+        }
+
+        .add-host {
+            flex: 1;
+        }
+
+        .input-host {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            padding: 10px;
+            box-sizing: border-box;
+        }
+
+        .input-host>* {
+            line-height: 2.6;
+            display: block;
+            width: 100%;
+            box-sizing: border-box;
+            padding: 0 10px;
+            resize: none;
+            background: rgba(255, 255, 255, .1);
+            outline: none;
+        }
+
+        textarea {
+            flex: 1;
+            margin: 10px 0;
+        }
+
+        input, textarea, button {
+            border: 1px solid rgba(255, 255, 255, .5);
+        }
+
+        li,button {
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <div class="side">
+            <div class="bts">
+                <button class="add-host">add</button>
+            </div>
+            <ul></ul>
+        </div>
+        <div class="main">
+            <div class="input-host">
+                <input type="text" class="host-name" placeholder="host name">
+                <textarea name="name" placeholder="# comment
+                127.0.0.1 github.io"></textarea>
+                <button class="submit-host">保存</button>
+            </div>
+        </div>
+    </div>
+    <!-- Insert this line above script imports  -->
+    <script>if (typeof module === 'object') {window.module = module; module = undefined;}</script>
+    <!-- normal script imports etc  -->
+
+    <script src="./lib/jquery.min.js" charset="utf-8"></script>
+    <!-- Insert this line after script imports -->
+    <script>if (window.module) module = window.module;</script>
+    <script type="text/javascript" src="./src/index.js"></script>
+</body>
+
 </html>
